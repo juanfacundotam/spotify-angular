@@ -11,4 +11,21 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'spotify';
+
+//   name: string = "carlos";
+//   auto: AutoTypes = {
+//     marca: "Audi",
+//     year: 2020
+//   }
+  
+//   listCar: Array<AutoTypes> = [
+// {marca: "BW"},
+// {marca: "Toyota", year: 2021}
+//   ]
+
 }
+
+  // interface AutoTypes {
+  //   marca: string;
+  //   year?: number;
+  // }
