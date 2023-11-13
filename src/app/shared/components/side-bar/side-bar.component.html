@@ -1,1 +1,10 @@
-<app-side-bar></app-side-bar>
+<div class="side-bar">
+  <div><i class="uil uil-ellipsis-h"></i></div>
+  <ul class="side-bar__list list-one">
+    <li *ngFor="let item of links">
+      <div class="list-wrapper-item">
+        <span class="side-bar__list list-label">{{item.name}}</span>
+      </div>
+    </li>
+  </ul>
+</div>
