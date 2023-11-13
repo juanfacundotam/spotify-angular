@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface LinkItem {
+  name:string
+}
+
 @Component({
   selector: 'app-side-bar',
   standalone: true,
@@ -9,5 +13,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
-
+links: Array<LinkItem> = [
+  {
+    name: "Juan",
+  },
+  {
+    name: "Pedro",
+  },
+];
 }
