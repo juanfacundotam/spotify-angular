@@ -7,13 +7,10 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
-    HomePageComponent,
-    // Otros componentes que puedas tener en HomeModule
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule, // Importa SharedModule aquí
   ]
 })
 export class HomeModule { }
