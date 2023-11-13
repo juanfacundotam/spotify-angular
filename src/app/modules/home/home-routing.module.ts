@@ -6,8 +6,8 @@ import { SideBarComponent } from '@shared/components/side-bar/side-bar.component
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    component: SideBarComponent
+    path: '',
+    component: HomePageComponent
   }
 ];
 
