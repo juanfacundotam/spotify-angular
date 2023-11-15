@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
   selector: 'app-card-player',
@@ -9,5 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card-player.component.css'
 })
 export class CardPlayerComponent {
-
+  @Input() mode: 'small' | 'big' = 'small'
+  @Input() track: TrackModel = { _id: 0, name: '', album: '', url: '', cover: '' };
 }
