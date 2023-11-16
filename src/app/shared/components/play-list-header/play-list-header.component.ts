@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-play-list-header',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './play-list-header.component.html',
-  styleUrl: './play-list-header.component.css'
+  styleUrls: ['./play-list-header.component.css']
 })
-export class PlayListHeaderComponent {
+export class PlayListHeaderComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

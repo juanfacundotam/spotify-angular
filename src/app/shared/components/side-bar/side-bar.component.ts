@@ -1,81 +1,81 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-
-// interface LinkItem {
-//   name:string
-// }
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
   templateUrl: './side-bar.component.html',
-  styleUrl: './side-bar.component.css',
+  styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent {
-  //   linksMenu:Array<any> = [
-  //     {name: 'Home',
-  //     icon: 'uil-estate'},
-  //     {name: 'Buscar',
-  //     icon: 'uil-estate'},
+export class SideBarComponent implements OnInit {
 
-  //   ]
-  // links: Array<any> = [
-  //   {
-  //     name: "Juan",
-  //   },
-  //   {
-  //     name: "Pedro",
-  //   },
-  // ];
-  mainMenu: { defaultOptions: Array<any>; accessLink: Array<any> } = {
-    defaultOptions: [
+  mainMenu: {
+    defaultOptions: Array<any>, accessLink: Array<any>
+  } = { defaultOptions: [], accessLink: [] }
+
+  customOptions: Array<any> = []
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.mainMenu.defaultOptions = [
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', ''],
+        router: ['/', '/']
       },
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history'],
+        router: ['/', 'history']
       },
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
-        query: { hola: 'mundo' },
-      },
-    ],
-    accessLink: [
+        query: { hola: 'mundo' }
+      }
+    ]
+
+    this.mainMenu.accessLink = [
       {
         name: 'Crear lista',
-        icon: 'uil-plus-square',
+        icon: 'uil-plus-square'
       },
       {
         name: 'Canciones que te gustan',
-        icon: 'uil-heart-medical',
-      },
-    ],
-  };
+        icon: 'uil-heart-medical'
+      }
+    ]
 
-  customOptions: Array<any> = [
-    {
-      name: 'Mi lista º1',
-      router: ['/'],
-    },
-    {
-      name: 'Mi lista º2',
-      router: ['/'],
-    },
-    {
-      name: 'Mi lista º3',
-      router: ['/'],
-    },
-    {
-      name: 'Mi lista º4',
-      router: ['/'],
-    },
-  ];
+    this.customOptions = [
+      {
+        name: 'Mi lista º1',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º2',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º3',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º4',
+        router: ['/']
+      }
+    ]
+
+  }
+
+  // goTo($event: any): void {
+  //   this.router.navigate(['/', 'favorites'], {
+  //     queryParams: {
+  //       key1: 'value1',
+  //       key2: 'value2',
+  //       key3: 'value3'
+  //     }
+  //   })
+  //   console.log($event)
+  // }
 }

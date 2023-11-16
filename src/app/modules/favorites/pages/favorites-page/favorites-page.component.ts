@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PlayListBodyComponent } from '@shared/components/play-list-body/play-list-body.component';
-import { PlayListHeaderComponent } from '@shared/components/play-list-header/play-list-header.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-favorites-page',
-  standalone: true,
-  imports: [CommonModule, PlayListBodyComponent, PlayListHeaderComponent],
+  selector: 'app-favorite-page',
   templateUrl: './favorites-page.component.html',
-  styleUrl: './favorites-page.component.css'
+  styleUrls: ['./favorites-page.component.css']
 })
-export class FavoritesPageComponent {
+export class FavoritePageComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

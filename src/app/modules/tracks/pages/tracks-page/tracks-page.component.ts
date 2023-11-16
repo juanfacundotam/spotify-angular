@@ -6,17 +6,14 @@ import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
   selector: 'app-tracks-page',
-  standalone: true,
-  imports: [CommonModule, SectionGenericComponent],
   templateUrl: './tracks-page.component.html',
-  styleUrl: './tracks-page.component.css',
+  styleUrls: ['./tracks-page.component.css']
 })
 export class TracksPageComponent implements OnInit {
   mockTracksList: Array<TrackModel> = [];
 
   ngOnInit() {
     const { data }: any = (dataRaw as any).default;
-    console.log(data);
     this.mockTracksList = data; // Assuming data is an array of TrackModel
   }
 }

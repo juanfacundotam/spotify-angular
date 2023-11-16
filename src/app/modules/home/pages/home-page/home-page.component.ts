@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SideBarComponent } from '@shared/components/side-bar/side-bar.component';
-import { RouterModule } from '@angular/router';
-import { TracksPageComponent } from '@modules/tracks/pages/tracks-page/tracks-page.component';
-import { MediaPlayerComponent } from '@shared/components/media-player/media-player.component';
-import { FavoritesPageComponent } from '@modules/favorites/pages/favorites-page/favorites-page.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
-  imports: [CommonModule, SideBarComponent, MediaPlayerComponent, RouterModule, TracksPageComponent, FavoritesPageComponent],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
