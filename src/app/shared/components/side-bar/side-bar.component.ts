@@ -68,9 +68,10 @@ export class SideBarComponent implements OnInit {
   }
 
   goTo($event: any, router: Array<string>): void {
-    
-    this.router.navigate(router, {
-      queryParams: { key1: 'value1', key2: 'value2', key3: 'value3' },
-    });
+    this.router.navigate(router, 
+      // {
+      // queryParams: { key1: 'value1', key2: 'value2', key3: 'value3' },
+      // }
+    );
   }
 }
