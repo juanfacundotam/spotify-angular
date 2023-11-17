@@ -68,6 +68,9 @@ export class SideBarComponent implements OnInit {
 
   }
 
+  goTo($event: any): void {
+    console.log($event)
+  }
   // goTo($event: any): void {
   //   this.router.navigate(['/', 'favorites'], {
   //     queryParams: {
