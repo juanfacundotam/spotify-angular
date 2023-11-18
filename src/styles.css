@@ -26,12 +26,12 @@ body {
     color: var(--color-4);
 } 
 
-/* input,
+ input,
 button {
     cursor: pointer;
     font-family: var(--font-family-1);
-}
+} 
 
 button:disabled {
     opacity: .5;
-}  */
+}  
