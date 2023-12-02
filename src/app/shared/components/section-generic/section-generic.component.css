@@ -1,14 +1,14 @@
 .section--generic {
-    padding: 0rem 0 6rem 0 ;
-} 
+    margin-bottom: 2rem;
+}
 
- .section--generic__player--zone .player--list {
+.section--generic__player--zone .player--list {
     display: grid;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 1.15rem;
-} 
+}
 
 .section--generic__player--zone .player--list.card-small {
     grid-template-columns: repeat(5, 1fr);

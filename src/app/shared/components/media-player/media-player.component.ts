@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TrackModel } from '@core/models/tracks.model';
-import { MultimediaService } from '@shared/Services/multimedia.service';
-import { Subscription } from 'rxjs'; //Programaciónn reactiva
+import { MultimediaService } from '@shared/services/multimedia.service';
+import { Subscription } from 'rxjs'; //TODO: Programacion reactiva!
 
 @Component({
   selector: 'app-media-player',
@@ -10,25 +9,34 @@ import { Subscription } from 'rxjs'; //Programaciónn reactiva
   styleUrls: ['./media-player.component.css']
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
-  mockCover: TrackModel = {
-   cover: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F1198260%2Falbum_media_music_icon&psig=AOvVaw2bsZa1XV6r1gNA56k0Imsn&ust=1700142293881000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDFkN6RxoIDFQAAAAAdAAAAABAE',
-   album: 'Yes',
-   name: 'Gates',
-   url: "http://localhost/track.mp3",
-   _id: 1,
-  }
-listObservers$: Array<Subscription> = [];
-  constructor(private multimediaService: MultimediaService) { }
+  @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('')
+  listObservers$: Array<Subscription> = []
+  state: string = 'paused'
+  constructor(public multimediaService: MultimediaService) { }
 
   ngOnInit(): void {
-    const observer1$: Subscription = this.multimediaService.callback.subscribe((response: TrackModel)=> {
-      console.log('Recibiendo cancion....', response)
 
-    })
+    const observer1$ = this.multimediaService.playerStatus$
+      .subscribe(status => this.state = status)
     this.listObservers$ = [observer1$]
   }
+
   ngOnDestroy(): void {
-    // console.log("se destruyo el componente")
     this.listObservers$.forEach(u => u.unsubscribe())
+    console.log('🔴🔴🔴🔴🔴🔴🔴 BOOM!');
   }
+
+
+  handlePosition(event: MouseEvent): void {
+    const elNative: HTMLElement = this.progressBar.nativeElement
+    const { clientX } = event
+    const { x, width } = elNative.getBoundingClientRect()
+    const clickX = clientX - x //TODO: 1050 - x
+    const percentageFromX = (clickX * 100) / width
+    console.log(`Click(x): ${percentageFromX}`);
+    this.multimediaService.seekAudio(percentageFromX)
+
+  }
+
+
 }

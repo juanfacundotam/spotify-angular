@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tracks',
     loadChildren: () => import('@modules/tracks/tracks.module').then(m => m.TracksModule)
   },
   {
@@ -15,10 +15,10 @@ const routes: Routes = [
     path: 'history',
     loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
   },
-  // {
-  //   path: '**',//TODO 404 cuando no existe la ruta
-  //   redirectTo: '/tracks'
-  // }
+  {
+    path: '**',//TODO 404 cuando no existe la ruta
+    redirectTo: '/tracks'
+  }
 ];
 
 @NgModule({

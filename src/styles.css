@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 :root {
     --color-1: #1DB954;
     --color-2: #323232;
@@ -16,7 +17,7 @@
     --animation-1: 200ms;
 }
 
- html,
+html,
 body {
     margin: 0;
     padding: 0;
@@ -24,14 +25,14 @@ body {
     font-family: var(--font-family-1);
     font-size: var(--font-size-1);
     color: var(--color-4);
-} 
+}
 
- input,
+input,
 button {
     cursor: pointer;
     font-family: var(--font-family-1);
-} 
+}
 
 button:disabled {
     opacity: .5;
-}  
+}
